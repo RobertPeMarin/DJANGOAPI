@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-
+from django.contrib import messages
 
 # Create your views here.
 def login_view(request):
@@ -18,7 +18,7 @@ def login_view(request):
             login(request, user)
             return redirect('home')
         else:
-            return render(request, template_name, {'error': 'credenciales invalidas'})
+            messages.error(request, 'credenciales invalidas')
     return render(request,template_name)
 
 # crear vista registro

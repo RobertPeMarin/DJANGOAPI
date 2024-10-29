@@ -21,6 +21,11 @@
           <div class="col-md-8 col-lg-6 col-xxl-3">
             <div class="card mb-0">
               <div class="card-body">
+                {% if messages %}
+                {% for message in messages %}
+                <div id="error-message" class="alert alert-danger" role="alert">{{ message }}</div>
+                {% endfor %}
+                {% endif %}
                 <a href="{% url 'home'%}" class="text-nowrap logo-img text-center d-block py-3 w-100">
                   <img src="{% static 'images/logos/dark-logo.svg'%}" width="180" alt="">
                 </a>
@@ -60,6 +65,7 @@
   </div>
   <script src="{% static 'libs/jquery/dist/jquery.min.js'%}"></script>
   <script src="{% static 'libs/bootstrap/dist/js/bootstrap.bundle.min.js'%}"></script>
+  <script>src="{% static 'js/alerts/alert_login.js'%}"</script>
 </body>
 
 </html>
